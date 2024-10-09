@@ -10,7 +10,7 @@ use Symfony\UX\Chartjs\Model\Chart;
 
 class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'app_home')]
+    #[Route('/', name: 'app_home')]
     public function index(ChartBuilderInterface $chartBuilder): Response
     {
         $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
@@ -19,10 +19,10 @@ class HomeController extends AbstractController
             'labels' => ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet'],
             'datasets' => [
                 [
-                    'label' => 'My First dataset',
+                    'label' => 'Intérêts',
                     'backgroundColor' => 'rgb(255, 99, 132)',
                     'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => [0, 10, 5, 2, 20, 30, 45],
+                    'data' => [5.5, 3.3, 5.1, 4.2, 3.8, 6.1, 7.2],
                 ],
             ],
         ]);
@@ -31,7 +31,7 @@ class HomeController extends AbstractController
             'scales' => [
                 'y' => [
                     'suggestedMin' => 0,
-                    'suggestedMax' => 100,
+                    'suggestedMax' => 10,
                 ],
             ],
         ]);
